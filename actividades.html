@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAS Tracker - Actividades</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="menu.html">CAS Tracker</a>
+      <nav class="site-nav" aria-label="Navegación principal">
+        <a href="menu.html">Inicio</a>
+        <a href="actividades.html" aria-current="page">Actividades</a>
+        <a href="reflexiones.html">Reflexiones</a>
+        <a href="horario.html">Horario</a>
+        <a href="portafolio.html">Portafolio</a>
+      </nav>
+      <div class="header-actions">
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="Cambiar tema">☾</button>
+        <button id="logoutBtn" class="btn ghost" type="button">Cerrar sesión</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <details class="content-section collapsible-section" open>
+      <summary>
+        <span>
+          <span class="eyebrow">Registro</span>
+          <strong>Actividades CAS</strong>
+        </span>
+      </summary>
+
+      <form id="formActividad" class="formulario">
+        <label for="nombre">Nombre de la actividad</label>
+        <input type="text" id="nombre" required>
+
+        <label for="categoria">Categoría</label>
+        <select id="categoria" required>
+          <option value="">Selecciona una categoría</option>
+          <option value="C">Creatividad</option>
+          <option value="A">Actividad</option>
+          <option value="S">Servicio</option>
+        </select>
+
+        <label for="horas">Horas</label>
+        <input type="number" id="horas" min="1" step="1" required>
+
+        <label for="fecha">Fecha</label>
+        <input type="date" id="fecha" required>
+
+        <label for="descripcion">Descripción breve</label>
+        <textarea id="descripcion" rows="3"></textarea>
+
+        <button type="submit" class="btn">Guardar actividad</button>
+      </form>
+    </details>
+
+    <details class="content-section collapsible-section" open>
+      <summary>
+        <span>
+          <span class="eyebrow">Historial</span>
+          <strong>Lista de actividades</strong>
+        </span>
+      </summary>
+      <div class="table-wrap">
+        <table id="tablaActividades">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Categoría</th>
+              <th>Horas</th>
+              <th>Fecha</th>
+              <th>Descripción</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </details>
+  </main>
+
+  <footer class="site-footer">
+    <p>Creado por Alejandro Sánchez Alejo</p>
+  </footer>
+
+  <script type="module" src="./firebase-auth.js"></script>
+  <script type="module" src="./script.js"></script>
+</body>
+</html>

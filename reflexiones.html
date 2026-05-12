@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAS Tracker - Reflexiones</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/docx@7.2.0/build/index.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="menu.html">CAS Tracker</a>
+      <nav class="site-nav" aria-label="Navegación principal">
+        <a href="menu.html">Inicio</a>
+        <a href="actividades.html">Actividades</a>
+        <a href="reflexiones.html" aria-current="page">Reflexiones</a>
+        <a href="horario.html">Horario</a>
+        <a href="portafolio.html">Portafolio</a>
+      </nav>
+      <div class="header-actions">
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="Cambiar tema">☾</button>
+        <button id="logoutBtn" class="btn ghost" type="button">Cerrar sesión</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <details class="content-section collapsible-section" open>
+      <summary>
+        <span>
+          <span class="eyebrow">Diario CAS</span>
+          <strong>Reflexiones</strong>
+        </span>
+      </summary>
+
+      <form id="formReflexion" class="formulario">
+        <label for="tituloReflexion">Título de la reflexión</label>
+        <input type="text" id="tituloReflexion" required>
+
+        <label for="textoReflexion">Reflexión</label>
+        <div class="textarea-container">
+          <textarea id="textoReflexion" rows="6" required></textarea>
+          <div id="wordCount" class="word-counter">0 palabras</div>
+        </div>
+
+        <button type="submit" class="btn">Guardar reflexión</button>
+      </form>
+    </details>
+
+    <details class="content-section collapsible-section" open>
+      <summary>
+        <span>
+          <span class="eyebrow">Archivo</span>
+          <strong>Mis reflexiones</strong>
+        </span>
+      </summary>
+      <div id="listaReflexiones" class="lista-reflexiones empty-aware"></div>
+    </details>
+  </main>
+
+  <footer class="site-footer">
+    <p>Creado por Alejandro Sánchez Alejo</p>
+  </footer>
+
+  <script type="module" src="./firebase-auth.js"></script>
+  <script type="module" src="./script.js"></script>
+</body>
+</html>

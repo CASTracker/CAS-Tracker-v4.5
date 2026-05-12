@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAS Tracker - Horario Semanal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="menu.html">CAS Tracker</a>
+      <nav class="site-nav" aria-label="Navegación principal">
+        <a href="menu.html">Inicio</a>
+        <a href="actividades.html">Actividades</a>
+        <a href="reflexiones.html">Reflexiones</a>
+        <a href="horario.html" aria-current="page">Horario</a>
+        <a href="portafolio.html">Portafolio</a>
+      </nav>
+      <div class="header-actions">
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="Cambiar tema">☾</button>
+        <button id="logoutBtn" class="btn ghost" type="button">Cerrar sesión</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <details class="content-section collapsible-section" open>
+      <summary>
+        <span>
+          <span class="eyebrow">Planeación</span>
+          <strong>Horario semanal CAS</strong>
+        </span>
+      </summary>
+
+      <div class="table-wrap">
+        <table id="tablaHorario">
+          <thead>
+            <tr>
+              <th>Día</th>
+              <th>Actividad planeada</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Lunes</td><td><textarea aria-label="Actividad del lunes" rows="2"></textarea></td></tr>
+            <tr><td>Martes</td><td><textarea aria-label="Actividad del martes" rows="2"></textarea></td></tr>
+            <tr><td>Miércoles</td><td><textarea aria-label="Actividad del miércoles" rows="2"></textarea></td></tr>
+            <tr><td>Jueves</td><td><textarea aria-label="Actividad del jueves" rows="2"></textarea></td></tr>
+            <tr><td>Viernes</td><td><textarea aria-label="Actividad del viernes" rows="2"></textarea></td></tr>
+            <tr><td>Sábado</td><td><textarea aria-label="Actividad del sábado" rows="2"></textarea></td></tr>
+            <tr><td>Domingo</td><td><textarea aria-label="Actividad del domingo" rows="2"></textarea></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="button-row">
+        <button id="guardarHorario" class="btn" type="button">Guardar horario</button>
+        <button id="limpiarHorario" class="btn danger" type="button">Limpiar</button>
+      </div>
+    </details>
+  </main>
+
+  <footer class="site-footer">
+    <p>Creado por Alejandro Sánchez Alejo</p>
+  </footer>
+
+  <script type="module" src="./firebase-auth.js"></script>
+  <script type="module" src="./script.js"></script>
+</body>
+</html>

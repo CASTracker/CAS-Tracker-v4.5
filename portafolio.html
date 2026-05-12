@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAS Tracker - Portafolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="menu.html">CAS Tracker</a>
+      <nav class="site-nav" aria-label="Navegación principal">
+        <a href="menu.html">Inicio</a>
+        <a href="actividades.html">Actividades</a>
+        <a href="reflexiones.html">Reflexiones</a>
+        <a href="horario.html">Horario</a>
+        <a href="portafolio.html" aria-current="page">Portafolio</a>
+      </nav>
+      <div class="header-actions">
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="Cambiar tema">☾</button>
+        <button id="logoutBtn" class="btn ghost" type="button">Cerrar sesión</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <details class="content-section collapsible-section" open>
+      <summary>
+        <span>
+          <span class="eyebrow">Evidencias</span>
+          <strong>Portafolio CAS</strong>
+        </span>
+      </summary>
+
+      <div class="portfolio-layout">
+        <aside class="folder-panel">
+          <form id="formCarpeta" class="compact-form">
+            <label for="nombreCarpeta">Nueva carpeta</label>
+            <div class="inline-control">
+              <input type="text" id="nombreCarpeta" placeholder="Ej. Proyecto CAS" required>
+              <button class="btn" type="submit">Crear</button>
+            </div>
+          </form>
+          <div id="listaCarpetas" class="folder-list" aria-label="Carpetas del portafolio"></div>
+        </aside>
+
+        <section class="file-panel">
+          <div class="section-top compact">
+            <div>
+              <p class="eyebrow">Carpeta actual</p>
+              <h2 id="carpetaActual">General</h2>
+            </div>
+          </div>
+
+          <div class="upload-box">
+            <div>
+              <p class="eyebrow">Subida directa</p>
+              <h3>Agregar documento desde Cloudinary</h3>
+              <p class="helper-text">Acepta PDF, Word y documentos de hasta 10 MB.</p>
+            </div>
+            <button id="cloudinaryUploadBtn" class="btn" type="button">Subir documento</button>
+            <p id="cloudinaryStatus" class="status-message" role="status"></p>
+          </div>
+
+          <form id="formArchivo" class="upload-box">
+            <div>
+              <p class="eyebrow">Respaldo</p>
+              <h3>Guardar enlace externo</h3>
+            </div>
+
+            <label for="nombreArchivo">Nombre del documento</label>
+            <input type="text" id="nombreArchivo" placeholder="Ej. Evidencia servicio comedor" required>
+
+            <label for="urlArchivo">Enlace del documento</label>
+            <input type="url" id="urlArchivo" placeholder="https://drive.google.com/..." required>
+
+            <label for="tipoArchivo">Tipo</label>
+            <select id="tipoArchivo" required>
+              <option value="">Selecciona un tipo</option>
+              <option value="PDF">PDF</option>
+              <option value="Word">Word</option>
+              <option value="Otro">Otro enlace</option>
+            </select>
+
+            <button class="btn" type="submit">Guardar enlace</button>
+            <p id="portfolioStatus" class="status-message" role="status"></p>
+          </form>
+
+          <div id="listaArchivos" class="file-list empty-aware"></div>
+        </section>
+      </div>
+    </details>
+  </main>
+
+  <footer class="site-footer">
+    <p>Creado por Alejandro Sánchez Alejo</p>
+  </footer>
+
+  <script type="module" src="./firebase-auth.js"></script>
+  <script src="https://upload-widget.cloudinary.com/latest/global/all.js"></script>
+  <script type="module" src="./script.js"></script>
+</body>
+</html>
