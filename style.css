@@ -17,6 +17,8 @@
   --shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
   --shadow-soft: 0 6px 16px rgba(15, 23, 42, 0.06);
   --motion: 180ms cubic-bezier(.2, .8, .2, 1);
+  background: var(--bg);
+  color-scheme: light;
 }
 
 :root[data-theme="dark"] {
@@ -33,6 +35,8 @@
   --warning: #fbbf24;
   --shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
   --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.22);
+  background: var(--bg);
+  color-scheme: dark;
 }
 
 * {
@@ -393,8 +397,11 @@ button:hover,
   justify-content: space-between;
   gap: 1rem;
   min-height: 42px;
+  padding: 0.15rem 0;
   cursor: pointer;
   list-style: none;
+  border-radius: var(--radius-sm);
+  transition: color var(--motion), background var(--motion);
 }
 
 .collapsible-section summary::-webkit-details-marker {
