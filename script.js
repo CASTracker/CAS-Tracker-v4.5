@@ -1,5 +1,6 @@
 import { auth, db } from "./firebase-app.js";
 import { cloudinaryConfig } from "./cloudinary-config.js";
+import { CETYS_LOGO_BASE64, IB_LOGO_BASE64 } from "./logo-assets.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
 import { doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
 
@@ -713,10 +714,13 @@ function exportarDatos() {
   URL.revokeObjectURL(url);
 }
 
-async function cargarImagenDocx(path) {
-  const response = await fetch(path);
-  if (!response.ok) throw new Error(`No se pudo cargar ${path}`);
-  return response.arrayBuffer();
+function base64ToArrayBuffer(base64) {
+  const binary = atob(base64);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i += 1) {
+    bytes[i] = binary.charCodeAt(i);
+  }
+  return bytes.buffer;
 }
 
 function lineRun(length = 20) {
@@ -751,19 +755,9 @@ async function exportarReflexionWord(reflexion) {
     VerticalAlign,
     WidthType
   } = window.docx;
-
-  let cetysLogo;
-  let ibLogo;
-  try {
-    [cetysLogo, ibLogo] = await Promise.all([
-      cargarImagenDocx("./assets/cetys-logo.png"),
-      cargarImagenDocx("./assets/ib-logo.png")
-    ]);
-  } catch (error) {
-    console.error(error);
-    alert("No se pudieron cargar los logos del formato.");
-    return;
-  }
+  
+  const cetysLogo = base64ToArrayBuffer(CETYS_LOGO_BASE64);
+  const ibLogo = base64ToArrayBuffer(IB_LOGO_BASE64);
 
   const noBorders = {
     top: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" },
