@@ -723,18 +723,6 @@ function base64ToArrayBuffer(base64) {
   return bytes.buffer;
 }
 
-function lineRun(length = 20) {
-  return new TextRun({ text: "_".repeat(length), bold: true, size: 24 });
-}
-
-function labelRun(text) {
-  return new TextRun({ text, bold: true, size: 24 });
-}
-
-function valueRun(text) {
-  return new TextRun({ text, size: 24 });
-}
-
 async function exportarReflexionWord(reflexion) {
   if (!window.docx || !window.saveAs) {
     alert("No se pudo cargar el exportador de Word.");
@@ -758,6 +746,9 @@ async function exportarReflexionWord(reflexion) {
   
   const cetysLogo = base64ToArrayBuffer(CETYS_LOGO_BASE64);
   const ibLogo = base64ToArrayBuffer(IB_LOGO_BASE64);
+  const lineRun = (length = 20) => new TextRun({ text: "_".repeat(length), bold: true, size: 24 });
+  const labelRun = (text) => new TextRun({ text, bold: true, size: 24 });
+  const valueRun = (text) => new TextRun({ text, size: 24 });
 
   const noBorders = {
     top: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" },
